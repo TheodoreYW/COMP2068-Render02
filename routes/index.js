@@ -32,14 +32,14 @@ router.get("/login", (req, res, next) => {
   res.render("login", { title: "Login", messages:sessionMsgs });
 });
 
-router.post("/login", passport.authenticate(
-  "local",
-  {
-    successRedirect:"/reflections",
-    failureRedirect:"/login",
-    failureMessage:"Invalid Credential"
-  }
-));
+//router.post("/login", passport.authenticate(
+// "local",
+//  {
+//    successRedirect:"/reflections",
+//    failureRedirect:"/login",
+//    failureMessage:"Invalid Credential"
+//  }
+//));
 
 router.get("/register", (req, res, next) => {
   res.render("register", { title: "Register" });
@@ -115,18 +115,18 @@ router.post('/update/:_id', (req, res, next) => {
     });
 });
 
-router.post("/register", (req, res, next) => {
-  new User({username:req.body.username}),
-  req.body.password,
-  (err, newUser) => {
-    if (err) {
-      console.log(err);
-      return res.redirect("/register");
-    }
-    else {
-      req.login(newUser, (err) => {res.redirect("/reflections");})
-    }
-  }
-});
+//router.post("/register", (req, res, next) => {
+//  new User({username:req.body.username}),
+//  req.body.password,
+//  (err, newUser) => {
+//    if (err) {
+//      console.log(err);
+//      return res.redirect("/register");
+//   }
+//    else {
+//      req.login(newUser, (err) => {res.redirect("/reflections");})
+//    }
+//  }
+//});
 
 module.exports = router;
