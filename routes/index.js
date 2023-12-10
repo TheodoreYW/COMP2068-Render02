@@ -27,9 +27,7 @@ router.get("/reflections", (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  let sessionMsgs = req.session.messages || [];
-  req.session.messages = [];
-  res.render("login", { title: "Login", messages:sessionMsgs });
+  res.render("login", { title: "Login"});
 });
 
 //router.post("/login", passport.authenticate(
